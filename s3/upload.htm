@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<script src="jquery.1.11.1.min.js"></script>
+<script src="aws-sdk.min.js"></script>
+<script type="text/javascript">
+    /*AWS.config.update({
+        accessKeyId : 'AKIAIP5VG4M5JBVQJAWQ',
+        secretAccessKey : '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'
+    });*/
+    AWS.config.region = 'ap-southeast-1';
+    var fold = 'zhangxg/';
+    $(function(){
+        var s3 = new AWS.S3({params: {Bucket: 'etender-web'}});
+
+
+
+
+        $("#fileUploadForm").change(function(e){ 
+
+            var fileChooser = document.getElementById('file');
+            var file = fileChooser.files[0];
+            document.getElementById('fileInput').value='wuhg/'+file.name;
+            if(file){
+                $.post("http://etender-web.s3.amazonaws.com/",{
+                    'key':'wuhg2/'+file.name,
+                    'acl':'public-read',
+                    'Content-Type':'application/force-download',
+                    'x-amz-meta-uuid':'14365123651274',
+                    'x-amz-meta-tag':'',
+                    'AWSAccessKeyId':'AKIAIP5VG4M5JBVQJAWQ',
+                    'Policy':'eyAiZXhwaXJhdGlvbiI6ICIyMDE3LTEyLTAxVDEyOjAwOjAwLjAwMFoiLA0KICAiY29uZGl0aW9ucyI6IFsNCiAgICB7ImJ1Y2tldCI6ICJldGVuZGVyLXdlYiJ9LA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJGtleSIsICJ3dWhnMiJdLA0KICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIn0sICAgIA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJENvbnRlbnQtVHlwZSIsICJhcHBsaWNhdGlvbi9mb3JjZS1kb3dubG9hZCJdLA0KICAgIHsieC1hbXotbWV0YS11dWlkIjogIjE0MzY1MTIzNjUxMjc0In0sDQogICAgWyJzdGFydHMtd2l0aCIsICIkeC1hbXotbWV0YS10YWciLCAiIl0NCiAgXQ0KfQ==',
+					'Signature':
+					'aKYaAVaIoIcUrO99tzONhzQYT54='
+                },function(data){
+                    console.log(data);
+                });
+            }
+        });
+        
+    })
+</script>
+</head>
+<body>
+
+    <form id="fileUploadForm"  action="http://etender-web.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+    文件名：<input id="fileInput" type="input" name="key" value="wuhg2/${filename}" />
+
+    <!-- 固定值 -->
+    <input type="hidden" name="acl" value="public-read" />
+    <input type="hidden" name="Content-Type" value="application/force-download" />
+    <input type="hidden" name="x-amz-meta-uuid" value="14365123651274" />
+    <input type="hidden" name="x-amz-meta-tag" value="" />
+    <input type="hidden" name="AWSAccessKeyId" value="AKIAIP5VG4M5JBVQJAWQ" />
+    <!--待输入值-->
+    <input type="hidden" name="Policy" value="eyAiZXhwaXJhdGlvbiI6ICIyMDE3LTEyLTAxVDEyOjAwOjAwLjAwMFoiLA0KICAiY29uZGl0aW9ucyI6IFsNCiAgICB7ImJ1Y2tldCI6ICJldGVuZGVyLXdlYiJ9LA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJGtleSIsICJ3dWhnMiJdLA0KICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIn0sICAgIA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJENvbnRlbnQtVHlwZSIsICJhcHBsaWNhdGlvbi9mb3JjZS1kb3dubG9hZCJdLA0KICAgIHsieC1hbXotbWV0YS11dWlkIjogIjE0MzY1MTIzNjUxMjc0In0sDQogICAgWyJzdGFydHMtd2l0aCIsICIkeC1hbXotbWV0YS10YWciLCAiIl0NCiAgXQ0KfQ==" />
+    <input type="hidden" name="Signature" value="aKYaAVaIoIcUrO99tzONhzQYT54=" />
+
+    File: <input type="file" name="file" id="file" value="dataFile" required="">
+    <input type="submit" name="submit" value="Upload to Amazon S3" />
+    </form>
+    
+</body>
+</html>
+
