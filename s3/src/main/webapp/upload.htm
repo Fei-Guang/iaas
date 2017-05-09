@@ -7,10 +7,7 @@
 <script src="jquery.1.11.1.min.js"></script>
 <script src="aws-sdk.min.js"></script>
 <script type="text/javascript">
-    /*AWS.config.update({
-        accessKeyId : 'AKIAIP5VG4M5JBVQJAWQ',
-        secretAccessKey : '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'
-    });*/
+    
     AWS.config.region = 'ap-southeast-1';
     var fold = 'zhangxg/';
     $(function(){
@@ -32,9 +29,9 @@
                     'x-amz-meta-uuid':'14365123651274',
                     'x-amz-meta-tag':'',
                     'AWSAccessKeyId':'AKIAIP5VG4M5JBVQJAWQ',
-                    'Policy':'eyAiZXhwaXJhdGlvbiI6ICIyMDE3LTEyLTAxVDEyOjAwOjAwLjAwMFoiLA0KICAiY29uZGl0aW9ucyI6IFsNCiAgICB7ImJ1Y2tldCI6ICJldGVuZGVyLXdlYiJ9LA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJGtleSIsICJ3dWhnMiJdLA0KICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIn0sICAgIA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJENvbnRlbnQtVHlwZSIsICJhcHBsaWNhdGlvbi9mb3JjZS1kb3dubG9hZCJdLA0KICAgIHsieC1hbXotbWV0YS11dWlkIjogIjE0MzY1MTIzNjUxMjc0In0sDQogICAgWyJzdGFydHMtd2l0aCIsICIkeC1hbXotbWV0YS10YWciLCAiIl0NCiAgXQ0KfQ==',
+                    'Policy':'eyAiZXhwaXJhdGlvbiI6ICIyMDE3LTEyLTAxVDEyOjAwOjAwiLpjAwMFoiLA0KICAiY29uZGl0aW9ucyI6IFsNCiAgICB7ImJ1Y2tldCI6ICJldGVuZGVyLXdlYiJ9LA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJGtleSIsICJ3dWhnMiJdLA0KICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIn0sICAgIA0KICAgIFsic3RhcnRzLXdpdGgiLCAiJENvbnRlbnQtVHlwZSIsICJhcHBsaWNhdGlvbi9mb3JjZS1kb3dubG9hZCJdLA0KICAgIHsieC1hbXotbWV0YS11dWlkIjogIjE0MzY1MTIzNjUxMjc0In0sDQogICAgWyJzdGFydHMtd2l0aCIsICIkeC1hbXotbWV0YS10YWciLCAiIl0NCiAgXQ0KfQ==',
 					'Signature':
-					'aKYaAVaIoIcUrO99tzONhzQYT54='
+					'aKYaAVaIoIbnbcUrO99tzONhzQYT54='
                 },function(data){
                     console.log(data);
                 });
