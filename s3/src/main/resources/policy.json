@@ -4,7 +4,7 @@
     ["starts-with", "$key", "wuhg2"],
     {"acl": "public-read"},    
     ["starts-with", "$Content-Type", "application/force-download"],
-    {"x-amz-meta-uuid": "14365123651274"},
+    {"x-amz-meta-uuid": "6299b0ab-bc8d-442c-acb9-6dac8d48c32e"},
     ["starts-with", "$x-amz-meta-tag", ""]
   ]
 }
